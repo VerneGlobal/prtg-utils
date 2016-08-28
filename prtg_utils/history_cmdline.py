@@ -28,5 +28,5 @@ def main():
 
     prtg = Prtg(args.host, args.user, args.password)
     data = prtg.get_history_data(ids, args.starttime, args.endtime, args.average)
-    generate_csv(ids, data, args.raw, args.average, args.locale, args.output)
+    generate_csv(prtg, ids, data, args.raw, args.average, args.locale, args.output)
 

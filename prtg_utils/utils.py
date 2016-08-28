@@ -1,9 +1,9 @@
 from __future__ import print_function
 import requests
 try:
-        from StringIO import StringIO
+    from StringIO import StringIO
 except ImportError:
-        from io import StringIO
+    from io import StringIO
 import csv
 import json
 from collections import defaultdict
@@ -38,7 +38,7 @@ class Prtg:
                        'username': self.username,
                        'passhash': self.password }
             r = requests.get(self.history_data_url, params=params, verify=False)
-            f = StringIO.StringIO(r.text)
+            f = StringIO(r.text)
             reader = csv.reader(f, delimiter=',')
             next(reader, None)
             for row in reader:

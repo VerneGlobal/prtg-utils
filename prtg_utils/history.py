@@ -1,6 +1,6 @@
 import csv
 
-def generate_csv(ids, data, raw, average, locale, output): 
+def generate_csv(prtg, ids, data, raw, average, locale, output): 
 
     if locale == 'us': 
         csv.register_dialect('csv_output', delimiter=',')
