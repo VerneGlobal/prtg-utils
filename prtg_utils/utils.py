@@ -18,6 +18,7 @@ class PrtgValue:
 class Prtg:
 
     def __init__(self, hostname, username, password):
+        requests.packages.urllib3.disable_warnings()
         self.hostname = hostname
         self.username = username
         self.password = password
