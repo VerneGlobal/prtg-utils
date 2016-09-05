@@ -18,7 +18,7 @@ def main():
     parser.add_argument("--password")
     parser.add_argument("--output", required=True)
     parser.add_argument("--locale",  default='us', help='[us|euro]')
-    parser.add_argument('--raw', dest='raw', action='store_true')
+    parser.add_argument('--raw', dest='raw', action='store_true', help='output raw data')
     args = parser.parse_args()
     ids = args.ids.split(",")   
     if not (args.locale == 'us' or args.locale == 'euro'):

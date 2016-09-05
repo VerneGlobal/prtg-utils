@@ -21,13 +21,15 @@ def generate_csv(prtg, ids, data, raw, average, locale, output):
         row3 = [ "Parent Device" ]
         row4 = [ "Start of Period " ]
         for id in ids:
-            for i in range(2): 
-                details = prtg.get_sendor_detail(id)
+            details = prtg.get_sendor_detail(id)
+            row1.append(details['sensordata']['name'])
+            row2.append(details['sensordata']['parentgroupname'])
+            row3.append(details['sensordata']['parentdevicename'])
+            row4.append(id)
+            if raw:
                 row1.append(details['sensordata']['name'])
                 row2.append(details['sensordata']['parentgroupname'])
                 row3.append(details['sensordata']['parentdevicename'])
-            row4.append(id)
-            if raw:
                 row4.append(str(id) + "(raw)")
 
         writer.writerow(row1)
