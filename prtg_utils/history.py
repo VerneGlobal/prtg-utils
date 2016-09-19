@@ -14,7 +14,7 @@ def generate_csv(prtg, ids, data, raw, average, locale, output):
             return  value.replace(".",",")
 
     
-    with open(output, 'wb') as f:
+    with open(output, 'w') as f:
         writer = csv.writer(f, dialect='csv_output')
         row1 = [ "Name" ]
         row2 = [ "Parent Group" ]
