@@ -1,6 +1,6 @@
 import csv
 
-def generate_csv(prtg, ids, data, raw, average, locale, output): 
+def generate_csv(prtg, ids, data, raw, average, ilocale, locale, output):
 
     if locale == 'us': 
         csv.register_dialect('csv_output', delimiter=',')
@@ -8,6 +8,10 @@ def generate_csv(prtg, ids, data, raw, average, locale, output):
         csv.register_dialect('csv_output', delimiter=';')
 
     def format_locale(value): 
+        ## thousand seperator
+        if ilocale == 'euro':
+            value = value.replace(".","")
+        ## decimal seperator
         if locale == 'us': 
             return  value.replace(",",".")
         elif locale == 'euro': 
